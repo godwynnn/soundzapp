@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px ;
+    box-sizing: border-box;
+    
+    
+
+}
+.landing{
+    height: 700px;
+    background: url(../media/s2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.landing_footer{
+    background: transparent;
+}
+.header_slide{
+    border: 1px solid black;
+    position: relative;
+    bottom: 25px;
+    height: 500px;
+}
+.btn_explore :hover{
+    background: black;
+    color: red;
+
+}
+/* .carousel-inner{
+    height: 550px;
+    width: 100%;
+}
+.carousel-item{
+    height: 550px;
+    width: 100%;
+}
+.carousel-item img{
+    height: 550px;
+    width: 100%;
+} */
+
+.index_bg{
+    background: url(../media/s.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-right: 0px;
+    padding-left: 0px;
+    
+    /* scroll-behavior: auto; */
+    
+    position: relative;
+    /* right: 0px; */
+    left: 0px;
+   
+    
+    
+
+}
+.index_search{
+    /* border: 1px solid white; */
+    height: 670px;
+    padding-top: 230px;
+    
+   
+}
+.search_bar{
+    height: 70px;
+    /* border: 1px solid white; */
+    padding-top: 15px;
+    background-color: black;
+    opacity: 90%;
+    border-radius: 20px;
+    /* position:sticky;
+    top: 8px; */
+}
+.search_bar button{
+    font-weight: bold;
+    position: relative;
+    bottom: 2px;
+
+}
+/* .search_bar button,.search_bar input{
+    position: -webkit-sticky;
+    top: 0;
+
+} */
+.search_bar input{
+    height: 40px;
+    padding-left: 10px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid whitesmoke;
+}
+.carousel-item{
+    height: 90px;
+    background-position: center;
+}
+.counter{
+    height: 170px;
+    position: relative;
+    bottom: 10px;
+    margin-top: 20px; 
+    opacity: 90%; 
+    animation-name: Anime;
+    /* border:1px solid white   */
+}
+.process{
+    /* border: 1px solid white; */
+    height: 250px;
+    text-align: center;
+    margin-top: 100px;
+    border-radius: 10%;
+    padding-top: 20px;
+    position: relative;
+    bottom: 90px;
+}
+
+    
+
+.process_holder{
+    background: url(../media/image.jpg);
+    background-position: center;
+    opacity: 95% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.pricing{
+    background: url(../media/image.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    
+}
+.shop_bg{
+    /* background: url(../media/photo.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-right: 0px;
+    padding-left: 0px;
+    /* max-height:3000px;
+    height:2000px */
+   
+}
+.product_detail{
+    /* border: 1px solid black; */
+}
+.shop_holder{
+    /* height: 1100px; */
+    justify-content: left;
+}
+
+
+
+
+
+.signup_form{
+    position: relative;
+    top: 150px;
+    height: 450px;
+    padding-top: 50px;
+    /* left: 30%; */
+    /* width: 40%; */
+ }
+ .signup_form button{
+     height: 50px;
+ }
+ #id_username,#id_password1,#id_password2,#id_email{
+    width: 100%;
+    
+    
+    
+}
+#id_first_name,#id_last_name{
+    width: 100%;
+}
+.upper_div{
+    position: relative;
+    bottom: 30px;
+    height: 100px;
+
+    padding-top: 30px;
+   
+}
+.login{
+    background: url(../media/loginbg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.login form{
+    background: transparent;
+}
+.form-signin{
+    /* width: 38%; */
+    height: 500px;
+    position: relative;
+    top:120px;
+    /* left: 30%; */
+    padding-top: 80px;
+    padding-left:0;
+    padding-right:0;
+    opacity: 85%;
+}
+.carousel-inner{
+    height: 300px;
+}
+.img-area img{
+    height: 225px;
+    border-radius: 50%;
+    width:70% ;
+    
+}
+.success_col{
+
+ /* border: 1px solid black; */
+ background-color: white;
+}
+.success_img{
+    width: 80%;
+}
+@keyframes Anime{
+    from{
+        bottom: 0px;
+    }
+    to{
+        bottom: 200px;
+    }
+}
