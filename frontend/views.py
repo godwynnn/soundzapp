@@ -268,7 +268,7 @@ def Create_Checkout_session(request,session):
         beat_name=order.beat.title
         
     total=orders.get_total_price()
-    DOMAIN='http://127.0.0.1:8000/soundz/'
+    DOMAIN='https://soundz-demo.herokuapp.com/'
     stripe.api_key=settings.STRIPE_SECRET_KEY
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
