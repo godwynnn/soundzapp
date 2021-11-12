@@ -1,0 +1,121 @@
+#  order_qs=Order.objects.filter(customer=customer,ordered=False)
+#         if order_qs.exists():
+#             order=order_qs[0]
+#             carted=False
+#             if order.beats.filter(beat__slug=beat.slug).exists():
+#                 carted=True
+
+customer=request.user.customer
+        beat_order=OrderBeat.objects.get(beat__slug=beat.slug,is_ordered=False,customer=customer)
+        order_qs=Order.objects.filter(ordered=False,customer=customer)
+        if order_qs.exists():
+            order=order_qs[0]
+
+
+def Add_to_cart(request,slug): 
+    if request.method=='POST':
+        beat=get_object_or_404(Beat,slug=slug)
+        try:
+            customer=request.user.customer
+            beat_order,created=OrderBeat.objects.get_or_create(
+                customer=customer,
+                beat=beat,
+            )
+            order_qs=Order.objects.filter(customer=customer,ordered=False)
+                
+        except:
+            device = request.COOKIES['device']
+            customer, created = Customer.objects.get_or_create(device=device)
+
+            beat_order,created=OrderBeat.objects.get_or_create(
+                    customer=customer,
+                    beat=beat,
+                )
+            order_qs=Order.objects.filter(customer=customer,ordered=False)
+        if order_qs.exists():
+            order=order_qs[0]
+            if order.beats.filter(beat__slug=beat.slug).exists():
+                messages.info(request,'your already have this beat')
+                return HttpResponseRedirect(reverse('detail',kwargs={'slug':beat.slug}))
+            else:
+                order.beats.add(beat_order)
+                return HttpResponseRedirect(reverse('detail',kwargs={'slug':beat.slug}))
+        else:
+            if customer:
+                order=Order.objects.create(customer=customer,ordered=False)
+                order.beats.add(beat_order)
+                return HttpResponseRedirect(reverse('detail',kwargs={'slug':beat.slug}))
+            else:
+                order=Order.objects.create(customer=customer,ordered=False)
+                order.beats.add(beat_order)
+                return HttpResponseRedirect(reverse('detail',kwargs={'slug':beat.slug}))
+
+
+
+def Remove_from_cart(request,slug):
+    
+    beat=get_object_or_404(Beat,slug=slug)
+    try:
+        customer=request.user.customer
+        
+        
+    except:
+        device = request.COOKIES['device']
+        customer, created = Customer.objects.get_or_create(device=device) 
+        
+    order_qs=Order.objects.filter(customer=customer,ordered=False)                   
+    if order_qs.exists():
+        order=order_qs[0]
+        if order.beats.filter(beat__slug=beat.slug).exists():
+            beat_order=OrderBeat.objects.filter(customer=customer,
+            is_ordered=False,
+            beat=beat
+            )[0]
+
+            order.beats.remove(beat_order)
+            beat_order.delete()
+            messages.info(request, "This item was removed from your cart.")
+            return HttpResponseRedirect(reverse('cart'))
+
+            
+        else:
+            messages.info(request, "This beat was not in your cart")
+            return HttpResponseRedirect(reverse('cart',))
+    else:
+        messages.info(request, "you don't have any active order")
+        return HttpResponseRedirect(reverse('cart'))
+
+
+def CartFlow(request):
+
+
+    try:
+        customer=request.user.customer
+        
+    except:
+        device = request.COOKIES['device']
+        customer, created = Customer.objects.get_or_create(device=device)
+        # orders= Order.objects.filter(customer__device=customer,ordered=False)[0]
+
+
+    beats_order=OrderBeat.objects.filter(customer=customer,is_ordered=False)
+    orders= Order.objects.filter(customer=customer,ordered=False).first()
+    total=orders.get_total_price()
+
+    carted=False
+    for beat in beats_order:
+        if beat in orders.beats.all():
+            carted=True
+        else:
+            carted=False
+    else:
+        pass
+        
+    
+
+    context={'orders':orders,'total':total,
+            "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+            'beats_order':beats_order,'carted':carted}
+
+    return render(request,'sound/cart.html',context)
+
