@@ -1,0 +1,28 @@
+{%extends 'base.html' %}
+
+{%load static%}
+
+{%block content%}
+
+
+        <div class="container-fluid bg-light" style="padding-top:60px ; height: 700px;">
+
+
+            <div class="container" >
+                <div class="row success_row offset-lg-3 offset-md-2  ">
+
+                    <div class="col-sm-12 col-lg-7 col-md-10  success_col ">
+                        <center>
+                            <h3>Payment Unsuccessful....</h3>
+                            <img src="{%static  'media/fail-img.png' %}" alt="" class="success_img">
+                            <br><br><br>
+                            
+                            <a href="{%url  'cart' %}"><button class="btn btn-warning">Return</button></a>
+                        </center>
+                   
+                        </div>
+                </div>
+            </div>
+
+        </div>
+{%endblock%}

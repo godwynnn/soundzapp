@@ -1,0 +1,83 @@
+{%extends 'base.html' %}
+{%load static%}
+
+
+
+{%block content%}
+
+<div class="container-fluid col-12 " style="height:700px ;">
+
+    {%include 'navbar.html' %}
+    <br><br><br><br>
+
+    
+    <div class="container bg-light " style="max-height:600px">
+        
+      {%if carted%}
+        <table class="table bg-light ">
+
+            <thead>
+              <tr>
+                <th scope="col " class="" >S/N</th>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                
+                <th scope="col">Genre</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+             
+              {%for order in orders.beats.all%}
+              <tr>
+               
+                 
+                <td  class="col-lg-1 col-1 col-md-1">{{forloop.counter}}</td>
+                
+
+                {%if order.beat.image%}
+                <td class="col-lg-0 col-1 col-md-1" ><img src="{{order.beat.image.url}}" class="col-lg-8 col-10 col-md-9 " style="align-items: left;" alt=""></td>
+                {%endif%} 
+
+                <td  class="col-lg-4 col-1">{{order.beat.title|truncatechars:16}}</td>
+                <td>{{order.beat.genre}}</td>
+                <td>${{order.beat.price}}</td>
+                <td><a href="{%url 'remove_from_cart' order.beat.slug %}"><button class="btn btn-lg btn-danger">X</button></td></a>
+               
+               
+              </tr>
+              {%endfor%}
+
+              
+              <tr>
+                <th scope="row">-</th>
+                <td colspan="1"><h2>Total</h2></td>
+                <td></td>
+                <td></td>
+                <td class="offset-lg-3"><h3>${{total}}</h3></td>
+
+              </tr>
+            </tbody>
+
+            
+              
+                <td>
+                  <form action="{%url 'checkout_session' orders.session  %}" method="get" class="offset-10">{%csrf_token%}
+                    <button type="submit" id="checkout-button" class="btn btn-success">Checkout</button>
+                  </form>
+                </td>
+             
+          </table>
+
+          
+        {%else%}
+        <center>
+        <h1>Your Cart is empty</h1>
+      </center>
+        {%endif%}
+    </div>
+    
+</div>
+
+{%endblock%}
