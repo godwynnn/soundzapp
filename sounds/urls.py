@@ -24,7 +24,7 @@ from sounds.settings import MEDIA_ROOT
 
 urlpatterns = [
 #     path('admin/', admin.site.urls),
-    path('soundz/', include('frontend.urls')),
+    path('', include('frontend.urls')),
     path('accounts/', include('allauth.urls')),
 ]
 
