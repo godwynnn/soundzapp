@@ -1,0 +1,589 @@
+{%extends 'base.html' %}
+{%load static%}
+
+
+
+
+{%block content%}
+
+<div class="container-fluid index_bg">
+  {%include 'navbar.html' %}
+
+      <div class="row-fluid index_search   ">
+        <center class="text-light"><h1>It's your Sound, to the <span style="color: black; font-weight: bolder;">WORLD!!</span></h1>
+        <h5>..Listen..Create.Sell</h5></center>
+        <form action="{%url 'search' %}"   class="search_bar col-9 col-lg-6 col-md-6 offset-lg-3 offset-md-3 offset-2 " method="POST">{%csrf_token%}
+
+          <input type="text" name="q"  class="col-lg-8 col-md-9 col-8 offset-lg-1 search_input" placeholder="Hey Superstar!! Looking for something...?">
+
+          <button type="submit" class="btn btn-outline-secondary  col-lg-2 search_btn">Search</button>
+
+        </form>
+        <br><br>
+        {%if request.user.is_authenticated%}
+        <div></div>
+      {%else%}
+      <center>
+        <a href="{%url 'signup' %}"><button class="btn btn-outline-info btn-lg  " style="font-weight: bold;">Get Started</button></a>
+      </center>
+        {%endif%}
+      </div>
+
+
+
+
+      <div class="row justify-content-center counter_holder " style = "">
+
+        <div class="col-lg-3 col-md-3 col-4 offset-lg-0 offset-1 offset-md-0 counter  bg-dark text-light" >
+          <center><h1>Over</h1>
+          <h3>50k</h3>
+          <h4>Producers</h4>
+          </center>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-4 offset-lg-1 offset-1 offset-md-1  counter bg-dark  text-light" >
+          <center><h1>Over</h1>
+            <h3>200k</h3>
+            <h4>Artiste</h4></center>
+        </div>
+
+
+        <div class="col-lg-3 col-md-3 col-5  offset-lg-1  offset-1 offset-md-1   counter  bg-dark  text-light" >
+          <center><h1>Over</h1>
+            <h3>100</h3>
+            <h4>Countries</h4></center>
+        </div>
+
+      </div>
+
+
+
+
+      <!-- process -->
+
+      <div class="row container-fluid w-100 text-light justify-content-center process_holder" style=" padding-top: 80px; position: relative;left: 10px;">
+        <br><br><br><br><br><br><br><br><br>
+              <center><h1 class="">How It Works</h1></center>
+              <br><br><br><br>
+
+                  <div class="col col-lg-3 col-md-5 col-12 text-light  process">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, sequi non vel quibusdam a tempora doloremque voluptate optio reiciendis tenetur quo reprehenderit commodi fugiat voluptas sapiente quam. Ratione, beatae aut.</p>
+                  </div>
+
+
+                  <div class="col col-lg-3  col-12 col-md-5 offset-lg-1 offset-md-1 offset-0   text-light  process">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, sequi non vel quibusdam a tempora doloremque voluptate optio reiciendis tenetur quo reprehenderit commodi fugiat voluptas sapiente quam. Ratione, beatae aut.</p>
+                  </div>
+
+                  <div class="col col-lg-3 col-md-5 col-12 offset-lg-1 text-light  process">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, sequi non vel quibusdam a tempora doloremque voluptate optio reiciendis tenetur quo reprehenderit commodi fugiat voluptas sapiente quam. Ratione, beatae aut.</p>
+                  </div> 
+
+
+            
+
+      </div>
+
+
+<!-- features -->
+
+
+      <div class="container-fluid py-4">
+        <header class="pb-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <h1>S</h1>
+            <span class="fs-4 text-light">Top Features</span>
+          </a>
+        </header>
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Explore</h1>
+            <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+            <a href="{%url 'shop' %}"><button class="btn btn-primary btn-lg" type="button">Store</button></a>
+          </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <h2>Be Your Own Plug</h2>
+              <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+              <button class="btn btn-outline-light" type="button">Coming Soon</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>New Packages</h2>
+              <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+              <button class="btn btn-outline-secondary" type="button">Coming Soon</button>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <br><br><br><br><br> 
+      <hr style="border: 1px solid white;">
+      
+<!-- Pricing -->
+      <div class="container-fluid py-3 pricing">
+        <br><br><br>
+          <div class="container text-light">
+            <center><h2>Top Producers</h2></center>
+            <br><br>
+
+            <div class="row">
+
+
+              <div class="col col-md-12 ">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" ></li>
+                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" ></li>
+                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" ></li>
+                   
+                  </ol>
+
+
+
+                    <div class="carousel-inner ">
+
+                      <div class="carousel-item active">
+                        <div class="row " >
+
+                          <div class=" col-md-4 " >
+                            
+                            <center>
+                            
+                            <div class="single-box">
+
+                            
+                              <div class="img-area "><img src="{%static 'media/producer1.jpg' %}" alt=""></div>
+                              <div class="img-text">
+                                <h5>Producer Name</h5>
+                              </div>
+                            
+                            </div></center>
+                            
+
+                          </div>
+
+                          
+                          <div class=" col-md-4 ">
+                            <center>
+                            
+                              <div class="single-box">
+  
+                              
+                                <div class="img-area "><img src="{%static 'media/producer2.jpg' %}" alt=""></div>
+                                <div class="img-text">
+                                  <h5>Producer Name</h5>
+                                </div>
+                              
+                              </div></center>
+
+                          </div>
+
+
+
+                          
+                          <div class=" col-md-4 ">
+                            <center>
+                            
+                              <div class="single-box">
+  
+                              
+                                <div class="img-area "><img src="{%static 'media/producer3.jpg' %}" alt=""></div>
+                                <div class="img-text">
+                                  <h5>Producer Name</h5>
+                                </div>
+                              
+                              </div></center>
+                            
+
+                          </div>
+
+                          
+                      
+                      </div>
+
+                    </div>
+
+
+
+
+                    <div class="carousel-item ">
+                      <div class="row">
+
+                        <div class=" col-md-4 ">
+                          <center>
+                            
+                            <div class="single-box">
+
+                            
+                              <div class="img-area "><img src="{%static 'media/producer4.jpg' %}" alt=""></div>
+                                <div class="img-text">
+                                  <h2>Producer Name</h2>
+                                </div>
+                            
+                            </div></center>
+                          
+
+                        </div>
+
+                        
+                        <div class=" col-md-4 ">
+                          <center>
+                            
+                            <div class="single-box">
+
+                              <div class="img-area "><img src="{%static 'media/producer6.jpg' %}" alt=""></div>
+                              <div class="img-text">
+                                <h2>Producer Name</h2>
+                              </div>
+                            
+                            </div></center>
+
+                        </div>
+
+
+
+                        
+                        <div class=" col-md-4 ">
+                          <center>
+                            
+                            <div class="single-box">
+
+                            
+                              <div class="img-area "><img src="{%static 'media/producer6.jpg' %}" alt=""></div>
+                              <div class="img-text">
+                                <h2>Producer Name</h2>
+                              </div>
+                            
+                            </div></center>
+
+                        </div>
+
+                        
+                    
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+                  <div class="carousel-item ">
+                    <div class="row">
+
+                      <div class=" col-md-4 ">
+                        <center>
+                            
+                          <div class="single-box">
+
+                            <div class="img-area "><img src="{%static 'media/producer7.jpg' %}" alt=""></div>
+                            <div class="img-text">
+                              <h2>Producer Name</h2>
+                            </div>
+                          
+                          </div></center>
+                        
+
+                      </div>
+
+                      
+                      <div class=" col-md-4 ">
+                        <center>
+                            
+                          <div class="single-box">
+
+                          
+                            <div class="img-area "><img src="{%static 'media/producer8.jpg' %}" alt=""></div>
+                            <div class="img-text">
+                              <h2>Producer Name</h2>
+                            </div>
+                          </div></center>
+
+                      </div>
+
+
+
+                      
+                      <div class=" col-md-4 ">
+                        <center>
+                            
+                          <div class="single-box">
+
+                            <div class="img-area "><img src="{%static 'media/producer9.jpg' %}" alt=""></div>
+                            <div class="img-text">
+                              <h2>Producer Name</h2>
+                            </div>
+                          
+                          </div></center>
+                        
+
+                      </div>
+
+                      
+                  
+                  </div>
+
+                </div>
+
+
+
+                  
+              
+
+
+
+               </div>
+             </div>
+
+
+
+
+            </div>
+          </div>
+
+
+
+
+          <br><br><br>
+      
+          <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          
+          
+
+
+
+
+
+
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-light" id="price_list"  >Our Pricing</h1>
+          
+      <br><br><br>
+
+      
+          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center text-dark">
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Free</h4>
+                </div>
+                <div class="card-body text-dark">
+                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>10 users included</li>
+                    <li>2 GB of storage</li>
+                    <li>Email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Free</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>10 users included</li>
+                    <li>2 GB of storage</li>
+                    <li>Email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Free</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>10 users included</li>
+                    <li>2 GB of storage</li>
+                    <li>Email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+
+          <h2 class="display-6 text-center mb-4 text-light">Compare plans</h2>
+
+          <div class="table-responsive text-light">
+            <table class="table text-center text-light">
+              <thead>
+                <tr>
+                  <th style="width: 34%;"></th>
+                  <th style="width: 22%;">Free</th>
+                  <th style="width: 22%;" >Pro</th>
+                  <th style="width: 22%; "class="">Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="text-start">Public</th>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-start">Private</th>
+                  <td></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr>
+                  <th scope="row" class="text-start">Permissions</th>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-start">Sharing</th>
+                  <td></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-start">Unlimited members</th>
+                  <td></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-start">Extra security</th>
+                  <td></td>
+                  <td></td>
+                  <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          </div>
+
+            
+        </div>
+        {%include 'footer.html' %}
+      </div>
+
+
+      
+
+  </div>
+
+
+
+
+{%endblock%}
+
+
+
+<!-- <div class="row bg-dark text-white pricing">
+
+
+  <div class="col">
+    <h1>Our Pricing</h1>
+  </div>
+
+
+</div> -->
+
+
+
+
+
+<!-- 
+<div class="col">
+  <div class="card shadow-sm">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+    <div class="card-body">
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        </div>
+        <small class="text-muted">9 mins</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card shadow-sm">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+    <div class="card-body">
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        </div>
+        <small class="text-muted">9 mins</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card shadow-sm">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+    <div class="card-body">
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        </div>
+        <small class="text-muted">9 mins</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card shadow-sm">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+    <div class="card-body">
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        </div>
+        <small class="text-muted">9 mins</small>
+      </div>
+    </div>
+  </div>
+</div> -->

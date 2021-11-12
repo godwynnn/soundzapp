@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content%}
+<div class="container-fluid bg-dark" style="height: 690px;" >
+<form action="{%url 'signup' %}" class="row bg-light  signup_form  col-lg-4 col-md-6 col-10 offset-1 offset-lg-4 offset-md-3 " method="post" id="" style="border: 1px solid black;">
+   {%csrf_token%}
+   
+    <div class="col-lg-6 col-sm-12 " style=" height: 40px;">
+        
+      {{form.first_name}}
+    </div>
+
+    <div class="col-lg-6 col-sm-12  " style=" height: 40px; "> 
+      {{form.last_name}}
+    </div>
+
+    <div class="col-lg-12 " style="height: 40px; position: relative; bottom: 5px;">
+        {{form.username}}     
+    </div>
+
+    
+    <div class="col-lg-12 " style=" height: 40px; position: relative; bottom: 5px;">
+        {{form.email}}     
+    </div>
+
+    <div class="col-12 " style="height: 40px; position: relative; bottom: 10px;">
+      {{form.password1}}    
+    </div>
+
+    <div class="col-lg-12" style=" height: 40px;position: relative; bottom: 20px;">
+      {{form.password2}}
+    </div>
+    <button type="submit" class="btn btn-outline-success col-lg-6 col-md-4 col-6 offset-lg-3 offset-3  offset-md-4" >Signup</button>
+     
+    <br><br>
+    {{form.errors}}
+    <em class="offset-lg-3">Already have an account <a href="{%url 'login' %}">Login</a> </em>
+  </form> 
+ 
+  
+</div> 
+{% endblock %}
+
+

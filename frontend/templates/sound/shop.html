@@ -1,0 +1,150 @@
+{%extends 'base.html' %}
+{%load static%}
+
+
+
+{%block content%}
+
+
+     <div class="container-fluid shop_bg">
+
+
+                {%include 'navbar.html' %}
+                <br><br><br><br>
+        <div class="container shop_holder ">
+          
+
+
+              {%if query%}
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {%for query in query%}
+
+               <div class="col-lg-3 col-6">
+                 <div class="card shadow-sm">
+
+                   {%if query.image %}
+                   <img src="{{query.image.url}}" class="bd-placeholder-img card-img-top" width="100%" height="225"></img>
+                   {%else%}
+                   <img src="{{query.image}}" class="bd-placeholder-img card-img-top" width="100%" height="225"></img>
+                   {%endif%}
+                     <div class="card-body bg-light">
+                       <h5 class="card-title">{{query.title|truncatechars:20}}</h5>
+                       <p class="card-text">{{query.description|truncatewords:10}}</p>
+                     <div class="d-flex justify-content-between align-items-center">
+                       <div class="btn-group">
+                         <a href="{%url 'detail' query.slug %}" class="btn btn-primary">View</a>
+
+                         {%if request.user.is_staff%}
+                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                         {%endif%}
+                       </div>
+                       <small class="text-muted">9 mins</small>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               {%endfor%}
+
+               <br>
+               
+               <center>
+               <div class="row">
+                <nav aria-label="Page navigation example">
+
+                  <ul class="pagination">
+                    {%if query.has_previous%}
+                    <li class="page-item"><a class="page-link" href="?page=1">&laquo;&laquo; First</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{query.previous_page_number}}">Previous</a></li>
+                    {% endif %}
+        
+                    <span class="current">
+                      Page {{ query.number }} of {{ beats.paginator.num_pages }}.
+                  </span>
+        
+                    {%if beats.has_next%}
+                    <li class="page-item"><a class="page-link" href="?page={{beats.next_page_number}}">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{beats.paginator.num_pages}}">Last &raquo; &raquo;</a></li>
+                    {% endif %}
+                  </ul>
+        
+                </nav>
+              </div>
+            </center>
+
+            
+            </div>
+               
+
+
+
+
+            
+              {%else%}
+
+            
+                
+            
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                     {%for beat in beats%}
+
+                    <div class="col-lg-3 col-6">
+                      <div class="card shadow-sm">
+
+                        {%if beat.image %}
+                        <img src="{{beat.image.url}}" class="bd-placeholder-img card-img-top" width="100%" height="225"></img>
+                        {%else%}
+                        <img src="{{beat.image}}" class="bd-placeholder-img card-img-top" width="100%" height="225"></img>
+                        {%endif%}
+                          <div class="card-body bg-light">
+                            <h5 class="card-title">{{beat.title|truncatechars:20}}</h5>
+                            <p class="card-text">{{beat.description|truncatewords:10}}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="{%url 'detail' beat.slug %}" class="btn btn-primary">View</a>
+                              {%if request.user.is_staff%}
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                              {%endif%}
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {%endfor%}
+                    <center>
+                      <nav aria-label="Page navigation example">
+  
+                        <ul class="pagination">
+                          {%if beats.has_previous%}
+                          <li class="page-item"><a class="page-link" href="?page=1">&laquo;&laquo; First</a></li>
+                          <li class="page-item"><a class="page-link" href="?page={{beats.previous_page_number}}">Previous</a></li>
+                          {% endif %}
+              
+                          <span class="current">
+                            Page {{ beats.number }} of {{ beats.paginator.num_pages }}.
+                        </span>
+              
+                          {%if beats.has_next%}
+                          <li class="page-item"><a class="page-link" href="?page={{beats.next_page_number}}">Next</a></li>
+                          <li class="page-item"><a class="page-link" href="?page={{beats.paginator.num_pages}}">Last &raquo; &raquo;</a></li>
+                          {% endif %}
+                        </ul>
+              
+                      </nav>
+  
+  
+                    </center>
+
+                  </div>
+                
+              
+
+
+              
+      {%endif%}
+                
+         
+        </div>
+  </div>
+        
+{%endblock%}

@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- <div class="container-fluid bg-dark"> -->
+{% block content%}
+<div class="container-fluid bg-dark login" style=" height: 700px;" >
+<main class="form-signin bg-light col-lg-4 col-md-6 col-10 offset-1 offset-lg-4 offset-md-3 "  >
+
+   <div class="col col-lg-12 upper_div" >
+      <h1 class="h3 mb-3 " style="text-align: center; font-weight: bolder;">Sign in</h1>
+    </div>
+
+    <form action="{%url 'login' %}" method="POST" class="">{% csrf_token %}
+     
+
+      <div class="form-floating col-lg-10 col-10 col-md-10 offset-lg-1 offset-1 offset-md-1">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+        <label for="username">Username</label>
+      </div>
+
+      <br>
+      <div class="form-floating col-lg-10 col-10 col-md-10  offset-lg-1 offset-1 offset-md-1 ">
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
+      </div>
+
+
+      <br><br>
+
+      {%if request.GET.next%}
+      <input type="hidden" name="next" value="{{request.GET.next}}">
+      {%endif%}
+
+      <button class="col-6 col-lg-6 btn btn-lg btn-primary offset-lg-3  offset-3  offse-md-3 " type="submit">Sign in</button><br>
+      <center><em>Don't have an account? <a href="{%url 'signup' %}">Signup</a> </em><br></center>
+
+        <!-- {% for message in messages %}
+            <strong>{{message}}</strong>
+        {%endfor%} -->
+    
+
+        <center>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+    </center>
+      
+    </form>
+    
+     
+    
+  </main>
+</div>
+{% endblock %}
+<!--  -->
