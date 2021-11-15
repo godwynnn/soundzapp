@@ -1,1 +1,1 @@
-web: gunicorn sounds.wsgi --log-file -
+web: gunicorn sounds.wsgi:application --log-file - --log-level debug
